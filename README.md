@@ -1,4 +1,4 @@
-# b101
+# BabylonJS with Typescript inside Vue.js
 
 ## Project setup
 ```
