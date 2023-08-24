@@ -10,13 +10,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import {BasicScene} from '@/BabylonExamples/BasicScene';
+import {StandardMaterials} from '@/BabylonExamples/StandardMaterials';
 
 export default defineComponent({
   name: 'BabylonExamples',
   mounted() {
       const canves = document.querySelector('canvas')!;
-      new BasicScene(canves);
+      new StandardMaterials(canves);
   }
 
 });
