@@ -15,8 +15,11 @@ import { PBR } from '@/BabylonExamples/PBR';
 export default defineComponent({
   name: 'BabylonExamples',
   mounted() {
-      const canves = document.querySelector('canvas')!;
-      new PBR(canves);
+      const canves = document.querySelector('canvas');
+      if(canves){
+        new PBR(canves);
+      }
+      
   }
 
 });
