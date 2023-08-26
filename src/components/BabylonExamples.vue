@@ -10,14 +10,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { PBR } from '@/BabylonExamples/PBR';
+import { CustomModels } from '@/BabylonExamples/CustomModels';
 
 export default defineComponent({
   name: 'BabylonExamples',
   mounted() {
       const canves = document.querySelector('canvas');
       if(canves){
-        new PBR(canves);
+        new CustomModels(canves);
       }
       
   }

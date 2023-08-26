@@ -78,21 +78,21 @@ CreateMagic(): PBRMaterial {
 
     pbr.environmentIntensity = 0.25;
 
-    pbr.albedoTexture = new Texture("./textures/magic/magic_baseColor.png", this.scene);
+     pbr.albedoTexture = new Texture("./textures/magic/magic_baseColor.png", this.scene);
 
-    pbr.bumpTexture = new Texture("./textures/magic/magic_normal.png", this.scene);
-    pbr.invertNormalMapX = true;
-    pbr.invertNormalMapY = true;
+     pbr.bumpTexture = new Texture("./textures/magic/magic_normal.png", this.scene);
+     pbr.invertNormalMapX = true;
+     pbr.invertNormalMapY = true;
 
-    pbr.metallicTexture = new Texture("./textures/magic/magic_rough.png", this.scene);
-    pbr.ambientTexture = new Texture("./textures/magic/magic_ao.png", this.scene);
+     pbr.metallicTexture = new Texture("./textures/magic/magic_rough.png", this.scene);
+     pbr.ambientTexture = new Texture("./textures/magic/magic_ao.png", this.scene);
     
-    pbr.emissiveColor = new Color3(1, 1, 1);
-    pbr.emissiveTexture = new Texture("./textures/magic/magic_emissive.png", this.scene);
-    pbr.emissiveIntensity = 1;
+     pbr.emissiveColor = new Color3(1, 1, 1);
+     pbr.emissiveTexture = new Texture("./textures/magic/magic_emissive.png", this.scene);
+     pbr.emissiveIntensity = 1;
 
-    const glowLayer = new GlowLayer("glow", this.scene);
-    glowLayer.intensity = 0.2;
+     const glowLayer = new GlowLayer("glow", this.scene);
+     glowLayer.intensity = 0.2;
 
     pbr.roughness = 1;
 
