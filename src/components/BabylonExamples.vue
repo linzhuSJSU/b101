@@ -10,14 +10,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CustomModels } from '@/BabylonExamples/CustomModels';
+import { CustomShaders } from '@/BabylonExamples/CustomShaders';
 
 export default defineComponent({
   name: 'BabylonExamples',
   mounted() {
       const canves = document.querySelector('canvas');
       if(canves){
-        new CustomModels(canves);
+        new CustomShaders(canves);
       }
       
   }
