@@ -1,4 +1,4 @@
-import { Scene, Engine, FreeCamera, Vector3, CubeTexture, SceneLoader, AbstractMesh } from "@babylonjs/core"
+import { Scene, Engine, FreeCamera, Vector3, CubeTexture, SceneLoader, AbstractMesh, Mesh, MeshBuilder, Light, LightGizmo, GizmoManager } from "@babylonjs/core"
 import "@babylonjs/loaders";
 
 export class LightsShadows {
@@ -6,6 +6,7 @@ export class LightsShadows {
     scene: Scene;
     engine: Engine;
     models!: AbstractMesh[];
+    ball!: AbstractMesh;
 
     constructor(private canvas:HTMLCanvasElement) {
         this.engine = new Engine(this.canvas, true);
@@ -21,9 +22,11 @@ export class LightsShadows {
 
     createScene(): Scene {
         const scene = new Scene(this.engine);
-        const camera = new FreeCamera("camera", new Vector3(0, 1, -8), this.scene);
+        const camera = new FreeCamera("camera", new Vector3(0, 1, -5), this.scene);
         camera.attachControl();
-        camera.speed = 0.25;
+        camera.speed = 0.10;
+        //set camrea clipping planes
+        camera.minZ = 0.1;
 
 
         const envTex = CubeTexture.CreateFromPrefilteredData("./environment/sky.env", scene);
@@ -41,6 +44,22 @@ export class LightsShadows {
 
         this.models = meshes;
 
+        this.ball = MeshBuilder.CreateSphere("ball", { diameter: 1 }, this.scene);
+
+        this.ball.position = new Vector3(0, 1, -1);
+
+    }
+
+    CreateGizmos(customLight: Light): void {
+        const lightGizmo = new LightGizmo();
+        lightGizmo.scaleRatio = 2;
+        lightGizmo.light = customLight;
+
+        const gizmoManager = new GizmoManager(this.scene);
+        gizmoManager.positionGizmoEnabled = true;
+        gizmoManager.rotationGizmoEnabled = true;
+        gizmoManager.usePointerToAttachGizmos = false;
+        gizmoManager.attachToMesh(lightGizmo.attachedMesh);
     }
 
 
