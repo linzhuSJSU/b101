@@ -25,7 +25,6 @@ export class LightsShadows {
         const camera = new FreeCamera("camera", new Vector3(0, 1, -5), this.scene);
         camera.attachControl();
         camera.speed = 0.10;
-        //set camrea clipping planes
         camera.minZ = 0.1;
 
 
