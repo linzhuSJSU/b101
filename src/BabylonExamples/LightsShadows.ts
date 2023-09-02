@@ -1,4 +1,4 @@
-import { Scene, Engine, FreeCamera, Vector3, CubeTexture, SceneLoader, AbstractMesh, Mesh, MeshBuilder, Light, LightGizmo, GizmoManager } from "@babylonjs/core"
+import { Scene, Engine, FreeCamera, Vector3, SceneLoader, AbstractMesh, MeshBuilder, Light, LightGizmo, GizmoManager, HemisphericLight } from "@babylonjs/core"
 import "@babylonjs/loaders";
 
 export class LightsShadows {
@@ -28,11 +28,6 @@ export class LightsShadows {
         camera.minZ = 0.1;
 
 
-        const envTex = CubeTexture.CreateFromPrefilteredData("./environment/sky.env", scene);
-        scene.environmentTexture = envTex;
-        scene.createDefaultSkybox(envTex, true);
-        scene.environmentIntensity = 0.5;
-
 
         return scene;
     }
@@ -47,6 +42,12 @@ export class LightsShadows {
 
         this.ball.position = new Vector3(0, 1, -3);
 
+        this.CreateLights();
+
+    }
+
+    CreateLights(): void {
+        const hemiLight = new HemisphericLight("hemiLight", new Vector3(0, 1, 0), this.scene);
     }
 
     CreateGizmos(customLight: Light): void {
