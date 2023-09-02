@@ -54,8 +54,11 @@ export class LightsShadows {
         spotLight.intensity = 100;
 
         spotLight.shadowEnabled = true;
+        spotLight.shadowMinZ = 1;
+        spotLight.shadowMaxZ = 10;
 
         const shadowGenerator = new ShadowGenerator(2048, spotLight);
+        shadowGenerator.useBlurCloseExponentialShadowMap = true;
 
         this.ball.receiveShadows = true;
         shadowGenerator.addShadowCaster(this.ball);
