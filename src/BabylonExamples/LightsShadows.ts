@@ -22,7 +22,7 @@ export class LightsShadows {
 
     createScene(): Scene {
         const scene = new Scene(this.engine);
-        const camera = new FreeCamera("camera", new Vector3(0, 1, -5), this.scene);
+        const camera = new FreeCamera("camera", new Vector3(0, 1, -6), this.scene);
         camera.attachControl();
         camera.speed = 0.10;
         camera.minZ = 0.1;
@@ -45,7 +45,7 @@ export class LightsShadows {
 
         this.ball = MeshBuilder.CreateSphere("ball", { diameter: 1 }, this.scene);
 
-        this.ball.position = new Vector3(0, 1, -1);
+        this.ball.position = new Vector3(0, 1, -3);
 
     }
 
